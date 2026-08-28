@@ -1,0 +1,2842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>GrafiPro — Babel Digital</title>
+
+<!-- Installable sur téléphone : icône + manifest inline (fichier unique, pas de dépendance externe) -->
+<link rel="icon" href="data:image/png;base64,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" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<meta name="theme-color" content="#1B1D23" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="GrafiPro" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script crossorigin src="https://unpkg.com/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.js"></script>
+
+<style>
+  html, body { margin:0; padding:0; background:#F4F2EC; }
+  *{ box-sizing:border-box; }
+  :root{
+    --paper:#F4F2EC; --paper-2:#EBE8DF; --ink:#1B1D23; --ink-soft:#5B5F6B; --line:#D9D5C9;
+    --cyan:#0E7C7B; --cyan-soft:#DCEEED; --magenta:#B23A63; --magenta-soft:#F5DEE6;
+    --amber:#B8791A; --amber-soft:#F3E4C9; --green:#3E7A4C; --green-soft:#E1EEE2; --white:#FFFDF9;
+  }
+  .gp{ font-family: Inter, "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:var(--paper); min-height:100vh; }
+  .gp-mono{ font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .gp-display{ font-family: "Archivo Black", Inter, sans-serif; letter-spacing:-0.01em; }
+  .gp-card{ background:var(--white); border:1px solid var(--line); border-radius:2px; }
+  .gp-btn{ display:inline-flex; align-items:center; gap:6px; border-radius:2px; font-weight:600; font-size:13px; padding:8px 14px; transition:opacity .15s ease; cursor:pointer; border:1px solid transparent; }
+  .gp-btn:active{ opacity:.75; }
+  .gp-btn-primary{ background:var(--ink); color:var(--paper); }
+  .gp-btn-primary:hover{ background:#000; }
+  .gp-btn-outline{ background:transparent; color:var(--ink); border-color:var(--line); }
+  .gp-btn-outline:hover{ background:var(--paper-2); }
+  .gp-btn-danger{ background:transparent; color:var(--magenta); border-color:var(--magenta-soft); }
+  .gp-btn-danger:hover{ background:var(--magenta-soft); }
+  .gp-input{ width:100%; border:1px solid var(--line); background:var(--white); border-radius:2px; padding:8px 10px; font-size:13px; color:var(--ink); font-family:inherit; }
+  .gp-input:focus{ outline:2px solid var(--cyan); outline-offset:0; border-color:var(--cyan); }
+  .gp-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); display:block; margin-bottom:4px; }
+  .gp-tab{ display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:2px; font-size:13px; font-weight:600; cursor:pointer; color:var(--ink-soft); }
+  .gp-tab.active{ background:var(--ink); color:var(--paper); }
+  .gp-tab:not(.active):hover{ background:var(--paper-2); color:var(--ink); }
+  .gp-badge{ display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+  .gp-reg{ position:relative; }
+  .gp-reg::before{ content:""; position:absolute; width:10px; height:10px; border:1.5px solid var(--ink); border-radius:50%; }
+  .gp-reg::after{ content:""; position:absolute; width:1px; height:14px; background:var(--ink); left:5px; top:-2px; }
+  ::-webkit-scrollbar{ width:6px; height:6px; }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+  @keyframes gp-spin{ to{ transform:rotate(360deg); } }
+  .spin{ animation:gp-spin 1s linear infinite; }
+  @media (max-width: 720px){
+    .gp-grid-2{ grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+const {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback
+} = React;
+
+/* ---- icônes SVG minimalistes (aucune dépendance externe) ---- */
+const Icon = ({
+  d,
+  size = 14,
+  ...p
+}) => /*#__PURE__*/React.createElement("svg", {
+  width: size,
+  height: size,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  ...p
+}, /*#__PURE__*/React.createElement("path", {
+  d: d
+}));
+const IconG = ({
+  children,
+  size = 14,
+  cls = "",
+  style
+}) => /*#__PURE__*/React.createElement("svg", {
+  width: size,
+  height: size,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  className: cls,
+  style: style
+}, children);
+const LayoutGrid = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("rect", {
+  x: "3",
+  y: "3",
+  width: "7",
+  height: "7"
+}), /*#__PURE__*/React.createElement("rect", {
+  x: "14",
+  y: "3",
+  width: "7",
+  height: "7"
+}), /*#__PURE__*/React.createElement("rect", {
+  x: "14",
+  y: "14",
+  width: "7",
+  height: "7"
+}), /*#__PURE__*/React.createElement("rect", {
+  x: "3",
+  y: "14",
+  width: "7",
+  height: "7"
+}));
+const Users = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "9",
+  cy: "7",
+  r: "4"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M23 21v-2a4 4 0 0 0-3-3.87"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M16 3.13a4 4 0 0 1 0 7.75"
+}));
+const FolderKanban = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"
+}));
+const Plus = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M5 12h14"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 5v14"
+}));
+const X = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M18 6 6 18"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m6 6 12 12"
+}));
+const Trash2 = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M3 6h18"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+}));
+const Pencil = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"
+}));
+const Phone = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+}));
+const Mail = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("rect", {
+  x: "2",
+  y: "4",
+  width: "20",
+  height: "16",
+  rx: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m22 6-10 7L2 6"
+}));
+const MapPin = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "10",
+  r: "3"
+}));
+const Search = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("circle", {
+  cx: "11",
+  cy: "11",
+  r: "8"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m21 21-4.3-4.3"
+}));
+const AlertTriangle = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 9v4"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 17h.01"
+}));
+const CheckCircle2 = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m9 12 2 2 4-4"
+}));
+const Clock = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 6v6l4 2"
+}));
+const Wallet = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M21 12V7H5a2 2 0 0 1 0-4h14v4"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M3 5v14a2 2 0 0 0 2 2h16v-5"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M18 12a2 2 0 0 0 0 4h4v-4Z"
+}));
+const FileText = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M14 2v6h6"
+}));
+const ChevronRight = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "m9 18 6-6-6-6"
+}));
+const Loader2 = p => /*#__PURE__*/React.createElement(IconG, {
+  ...p,
+  cls: "spin " + (p.className || "")
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M21 12a9 9 0 1 1-6.219-8.56"
+}));
+const Save = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M17 21v-7H7v7"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M7 3v4h8"
+}));
+const Settings = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "3"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"
+}));
+const FileDown = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M14 2v6h6"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 18v-6"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m9 15 3 3 3-3"
+}));
+const MessageCircle = p => /*#__PURE__*/React.createElement(IconG, p, /*#__PURE__*/React.createElement("path", {
+  d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+}));
+
+/* ---------------- données & constantes ---------------- */
+const STATUSES = ["Devis", "Accepté", "Avance reçue", "En création", "BAT envoyé", "En production", "Terminé", "Livré"];
+const STATUS_COLOR = {
+  "Devis": {
+    bg: "var(--paper-2)",
+    fg: "var(--ink-soft)"
+  },
+  "Accepté": {
+    bg: "var(--cyan-soft)",
+    fg: "var(--cyan)"
+  },
+  "Avance reçue": {
+    bg: "var(--cyan-soft)",
+    fg: "var(--cyan)"
+  },
+  "En création": {
+    bg: "var(--amber-soft)",
+    fg: "var(--amber)"
+  },
+  "BAT envoyé": {
+    bg: "var(--amber-soft)",
+    fg: "var(--amber)"
+  },
+  "En production": {
+    bg: "var(--amber-soft)",
+    fg: "var(--amber)"
+  },
+  "Terminé": {
+    bg: "var(--green-soft)",
+    fg: "var(--green)"
+  },
+  "Livré": {
+    bg: "var(--green-soft)",
+    fg: "var(--green)"
+  }
+};
+const PAY_METHODS = ["Espèces", "Wave", "Orange Money", "Virement", "Autre"];
+const CATEGORIES = ["T-shirt", "Flyer", "Affiche", "Carte de visite", "Logo", "Identité visuelle", "Bâche", "Sticker", "Sérigraphie", "Broderie", "Sublimation", "DTF", "Autre"];
+
+/* ---------------- métiers : chaque atelier a ses propres catégories, couleur et vocabulaire ---------------- */
+const TRADES = {
+  infographiste: {
+    label: "Infographiste / Design graphique",
+    short: "studio de design graphique",
+    accent: "#0E7C7B",
+    accentSoft: "#DCEEED",
+    categories: ["Logo", "Identité visuelle", "Flyer", "Affiche", "Carte de visite", "Packaging", "Réseaux sociaux", "Mise en page", "Autre"]
+  },
+  imprimeur: {
+    label: "Imprimerie",
+    short: "atelier d'impression",
+    accent: "#B8791A",
+    accentSoft: "#F3E4C9",
+    categories: ["Flyer", "Affiche", "Carte de visite", "Bâche", "Sticker", "Banderole", "Carnet / Facturier", "Calendrier", "Autre"]
+  },
+  serigraphe: {
+    label: "Sérigraphie / Textile",
+    short: "atelier de sérigraphie",
+    accent: "#B23A63",
+    accentSoft: "#F5DEE6",
+    categories: ["T-shirt", "Sérigraphie", "Broderie", "Sublimation", "DTF", "Flocage", "Casquette", "Autre"]
+  },
+  autre: {
+    label: "Multi-services",
+    short: "atelier",
+    accent: "#1B1D23",
+    accentSoft: "#EBE8DF",
+    categories: CATEGORIES
+  }
+};
+const tradeInfo = tradeId => TRADES[tradeId] || null;
+const categoriesForTrade = tradeId => (TRADES[tradeId] && TRADES[tradeId].categories) || CATEGORIES;
+const fcfa = n => (Number(n) || 0).toLocaleString("fr-FR") + " FCFA";
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const today = () => new Date().toISOString().slice(0, 10);
+
+/* ---------------- branding Babel Digital (éditeur du logiciel) ---------------- */
+const BABEL_DIGITAL = {
+  name: "Babel Digital",
+  tagline: "Donner vie à vos idées",
+  phones: ["77 463 73 95", "71 032 41 91"],
+  logo: "data:image/jpeg;base64,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"
+};
+
+/* ---------------- paramètres de l'atelier (émetteur des devis/factures) ---------------- */
+const DEFAULT_SETTINGS = {
+  shopName: "",
+  phone: "",
+  address: "",
+  trade: "",
+  rccm: "",
+  ninea: "",
+  footerNote: "",
+  onboarded: false
+};
+const loadSettings = () => {
+  try {
+    const raw = window.localStorage.getItem("grafipro:settings");
+    if (raw) return {
+      ...DEFAULT_SETTINGS,
+      ...JSON.parse(raw)
+    };
+  } catch (e) {}
+  return DEFAULT_SETTINGS;
+};
+const saveSettings = s => {
+  try {
+    window.localStorage.setItem("grafipro:settings", JSON.stringify(s));
+  } catch (e) {}
+};
+
+/* ---------------- génération PDF devis / facture ---------------- */
+const hexToRgb = hex => {
+  const h = (hex || "#1B1D23").replace("#", "");
+  const n = parseInt(h.length === 3 ? h.split("").map(c => c + c).join("") : h, 16);
+  return [n >> 16 & 255, n >> 8 & 255, n & 255];
+};
+function generatePDF(project, client, settings, kind /* "devis" | "facture" */) {
+  const {
+    jsPDF
+  } = window.jspdf;
+  const doc = new jsPDF({
+    unit: "mm",
+    format: "a4"
+  });
+  const t = projectTotals(project);
+  const trade = tradeInfo(settings.trade);
+  const accent = hexToRgb(trade ? trade.accent : "#1B1D23");
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 15;
+  let y = 18;
+
+  /* ---- bandeau d'en-tête : couleur = accent du métier ---- */
+  doc.setFillColor(...accent);
+  doc.rect(0, 0, pageW, 34, "F");
+  doc.setTextColor(255, 255, 255);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(17);
+  doc.text(settings.shopName || "Atelier", marginX, 14);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.5);
+  doc.text(trade ? trade.label : "Atelier de création", marginX, 19.5);
+  doc.setFontSize(8.5);
+  let contactY = 26;
+  const contactBits = [settings.address, settings.phone ? "Tél : " + settings.phone : ""].filter(Boolean);
+  contactBits.forEach(line => {
+    doc.text(line, marginX, contactY);
+    contactY += 4.2;
+  });
+  doc.setFontSize(20);
+  doc.setFont("helvetica", "bold");
+  doc.text(kind === "facture" ? "FACTURE" : "DEVIS", pageW - marginX, 16, {
+    align: "right"
+  });
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.text(`N° ${project.id.toUpperCase()}`, pageW - marginX, 22, {
+    align: "right"
+  });
+  doc.text(`Date : ${today()}`, pageW - marginX, 27, {
+    align: "right"
+  });
+  if (project.deadline) doc.text(`Échéance : ${project.deadline}`, pageW - marginX, 32, {
+    align: "right"
+  });
+
+  y = 46;
+  doc.setTextColor(20, 20, 20);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10.5);
+  doc.text(kind === "facture" ? "FACTURÉ À" : "DEVIS POUR", marginX, y);
+  doc.setDrawColor(...accent);
+  doc.setLineWidth(0.6);
+  doc.line(marginX, y + 1.5, marginX + 22, y + 1.5);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  y += 7;
+  doc.setFont("helvetica", "bold");
+  doc.text(client?.name || "—", marginX, y);
+  doc.setFont("helvetica", "normal");
+  if (client?.phone) {
+    y += 5;
+    doc.text(client.phone, marginX, y);
+  }
+  if (client?.email) {
+    y += 5;
+    doc.text(client.email, marginX, y);
+  }
+  if (client?.address) {
+    y += 5;
+    doc.text(client.address, marginX, y);
+  }
+
+  y += 12;
+  doc.setFillColor(...accent);
+  doc.rect(marginX, y - 5, 3, 5, "F");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(12);
+  doc.setTextColor(20, 20, 20);
+  doc.text(project.title || "Projet", marginX + 6, y);
+  if (project.category) {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.setTextColor(110, 110, 110);
+    doc.text(project.category, marginX + 6, y + 5);
+    y += 5;
+  }
+  y += 3;
+  const rows = (project.lineItems || []).map(li => [li.desc || "—", String(li.qty || 0), fcfa(li.unitPrice), fcfa((Number(li.qty) || 0) * (Number(li.unitPrice) || 0))]);
+  doc.autoTable({
+    startY: y + 4,
+    head: [["Description", "Qté", "P.U.", "Total"]],
+    body: rows,
+    theme: "grid",
+    headStyles: {
+      fillColor: accent,
+      textColor: 255,
+      fontStyle: "bold",
+      fontSize: 9.5
+    },
+    alternateRowStyles: {
+      fillColor: [248, 247, 243]
+    },
+    styles: {
+      fontSize: 9.5,
+      cellPadding: 3.2,
+      lineColor: [225, 221, 210],
+      lineWidth: 0.2
+    },
+    columnStyles: {
+      1: {
+        halign: "right",
+        cellWidth: 20
+      },
+      2: {
+        halign: "right",
+        cellWidth: 35
+      },
+      3: {
+        halign: "right",
+        cellWidth: 35
+      }
+    },
+    margin: {
+      left: marginX,
+      right: marginX
+    }
+  });
+  let finalY = doc.lastAutoTable.finalY + 8;
+  const line = (label, value, bold, big) => {
+    doc.setFont("helvetica", bold ? "bold" : "normal");
+    doc.setFontSize(big ? 13 : bold ? 11 : 10);
+    doc.setTextColor(...(big ? accent : [40, 40, 40]));
+    doc.text(label, pageW - 78, finalY);
+    doc.text(value, pageW - marginX, finalY, {
+      align: "right"
+    });
+    finalY += big ? 8 : 6;
+  };
+  doc.setTextColor(40, 40, 40);
+  line("Sous-total", fcfa(t.subtotal));
+  if (project.discount > 0) line("Remise", "- " + fcfa(project.discount));
+  finalY += 1;
+  doc.setDrawColor(...accent);
+  doc.setLineWidth(0.4);
+  doc.line(pageW - 78, finalY - 4, pageW - marginX, finalY - 4);
+  line("TOTAL " + (kind === "facture" ? "FACTURE" : "DEVIS"), fcfa(t.total), true, true);
+  if (kind === "facture") {
+    doc.setTextColor(40, 40, 40);
+    line("Déjà payé", fcfa(t.paid));
+    line(t.due > 0 ? "Reste à payer" : "Solde", fcfa(t.due), true, t.due > 0);
+  }
+  finalY += 5;
+
+  /* ---- mention automatique si aucune note personnalisée n'est définie ---- */
+  const autoNote = kind === "facture" ? t.due > 0 ? `Merci d'effectuer le règlement du solde (${fcfa(t.due)}) selon les modalités convenues.` : "Facture soldée. Merci de votre confiance." : "Ce devis est valable 15 jours à compter de sa date d'émission. Un acompte peut être demandé au démarrage de la production.";
+  const noteText = settings.footerNote || autoNote;
+  doc.setFillColor(...(trade ? hexToRgb(trade.accentSoft) : [235, 232, 223]));
+  const noteLines = doc.splitTextToSize(noteText, pageW - marginX * 2 - 8);
+  const noteBoxH = noteLines.length * 4.2 + 6;
+  doc.rect(marginX, finalY, pageW - marginX * 2, noteBoxH, "F");
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(8.5);
+  doc.setTextColor(60, 60, 60);
+  doc.text(noteLines, marginX + 4, finalY + 5.5);
+  finalY += noteBoxH + 6;
+
+  const pageH = doc.internal.pageSize.getHeight();
+  doc.setDrawColor(217, 213, 201);
+  doc.setLineWidth(0.2);
+  doc.line(marginX, pageH - 16, pageW - marginX, pageH - 16);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(7.5);
+  doc.setTextColor(120, 120, 120);
+  const legalBits = [settings.rccm ? "RCCM " + settings.rccm : "", settings.ninea ? "NINEA " + settings.ninea : ""].filter(Boolean).join("  ·  ");
+  if (legalBits) doc.text(legalBits, marginX, pageH - 11);
+  doc.text(`Document généré via GrafiPro — développé par ${BABEL_DIGITAL.name} (${BABEL_DIGITAL.phones.join(" / ")})`, marginX, pageH - 6.5);
+  return doc;
+}
+function projectTotals(p) {
+  const subtotal = (p.lineItems || []).reduce((s, li) => s + (Number(li.qty) || 0) * (Number(li.unitPrice) || 0), 0);
+  const total = Math.max(0, subtotal - (Number(p.discount) || 0));
+  const paid = (p.payments || []).reduce((s, pay) => s + (Number(pay.amount) || 0), 0);
+  const due = Math.max(0, total - paid);
+  const expenses = (p.expenses || []).reduce((s, ex) => s + (Number(ex.amount) || 0), 0);
+  const netCash = paid - expenses;
+  const margin = total - expenses;
+  return {
+    subtotal,
+    total,
+    paid,
+    due,
+    expenses,
+    netCash,
+    margin
+  };
+}
+function isLate(p) {
+  if (!p.deadline || p.status === "Livré" || p.status === "Terminé") return false;
+  return new Date(p.deadline) < new Date(new Date().toDateString());
+}
+
+/* ---------------- premier lancement : chaque atelier configure son propre profil ---------------- */
+const TRADE_OPTIONS = [{
+  id: "infographiste",
+  label: "Infographiste / Designer",
+  desc: "Logos, identité visuelle, flyers, réseaux sociaux…"
+}, {
+  id: "imprimeur",
+  label: "Imprimeur",
+  desc: "Flyers, affiches, cartes de visite, bâches, calendriers…"
+}, {
+  id: "serigraphe",
+  label: "Sérigraphe / Flocage textile",
+  desc: "T-shirts, broderie, sublimation, DTF, casquettes…"
+}, {
+  id: "autre",
+  label: "Autre / plusieurs métiers",
+  desc: "Un peu de tout, ou une autre activité graphique"
+}];
+function OnboardingScreen({
+  initial,
+  onSave
+}) {
+  const [form, setForm] = useState({
+    shopName: initial?.shopName || "",
+    phone: initial?.phone || "",
+    address: initial?.address || "",
+    trade: initial?.trade || ""
+  });
+  const set = k => e => setForm({
+    ...form,
+    [k]: e.target.value
+  });
+  const canSubmit = form.shopName.trim() && form.phone.trim() && form.trade;
+  const submit = () => {
+    if (!canSubmit) return;
+    onSave({
+      ...DEFAULT_SETTINGS,
+      ...initial,
+      ...form,
+      onboarded: true
+    });
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "gp",
+    style: {
+      minHeight: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      width: 520,
+      maxWidth: "100%",
+      padding: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "gp-reg",
+    style: {
+      width: 18,
+      height: 18
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "gp-display",
+    style: {
+      fontSize: 17
+    }
+  }, "GRAFIPRO")), /*#__PURE__*/React.createElement("div", {
+    className: "gp-display",
+    style: {
+      fontSize: 20,
+      marginBottom: 4
+    }
+  }, "Bienvenue dans votre outil de gestion"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 13,
+      color: "var(--ink-soft)",
+      marginTop: 0,
+      marginBottom: 18,
+      lineHeight: 1.5
+    }
+  }, "Configurez votre atelier en 30 secondes. Ces informations apparaîtront automatiquement sur vos devis, factures et messages clients — pas besoin d'y repenser à chaque fois."), /*#__PURE__*/React.createElement(Field, {
+    label: "Nom de l'atelier, boutique ou entreprise *"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: form.shopName,
+    onChange: set("shopName"),
+    placeholder: "Ex. Atelier Fatou Design",
+    autoFocus: true
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Téléphone (pour vos clients) *"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "tel",
+    value: form.phone,
+    onChange: set("phone"),
+    placeholder: "Ex. 77 123 45 67"
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Adresse (optionnel)"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: form.address,
+    onChange: set("address"),
+    placeholder: "Ex. Thiès, Sénégal"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label",
+    style: {
+      marginTop: 14,
+      marginBottom: 8
+    }
+  }, "Quel est votre métier ? *"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 8,
+      marginBottom: 18
+    },
+    className: "gp-grid-2"
+  }, TRADE_OPTIONS.map(o => /*#__PURE__*/React.createElement("div", {
+    key: o.id,
+    onClick: () => setForm({
+      ...form,
+      trade: o.id
+    }),
+    className: "gp-card",
+    style: {
+      padding: 10,
+      cursor: "pointer",
+      borderColor: form.trade === o.id ? "var(--cyan)" : "var(--line)",
+      borderWidth: form.trade === o.id ? 2 : 1,
+      background: form.trade === o.id ? "var(--cyan-soft)" : "var(--white)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12.5,
+      fontWeight: 700,
+      marginBottom: 2
+    }
+  }, o.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "var(--ink-soft)",
+      lineHeight: 1.35
+    }
+  }, o.desc)))), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-primary",
+    style: {
+      width: "100%",
+      justifyContent: "center",
+      padding: "10px 14px",
+      opacity: canSubmit ? 1 : 0.5,
+      cursor: canSubmit ? "pointer" : "not-allowed"
+    },
+    disabled: !canSubmit,
+    onClick: submit
+  }, /*#__PURE__*/React.createElement(CheckCircle2, {
+    size: 14
+  }), " Commencer avec GrafiPro"), !canSubmit && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "var(--ink-soft)",
+      marginTop: 8,
+      textAlign: "center"
+    }
+  }, "Nom, téléphone et métier sont nécessaires pour personnaliser vos documents.")));
+}
+
+/* ---------------- app ---------------- */
+function GrafiProApp() {
+  const [clients, setClients] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [tab, setTab] = useState("dashboard");
+  const [clientForm, setClientForm] = useState(null);
+  const [projectForm, setProjectForm] = useState(null);
+  const [openProjectId, setOpenProjectId] = useState(null);
+  const [search, setSearch] = useState("");
+  const [settings, setSettings] = useState(loadSettings());
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem("grafipro:data");
+      if (raw) {
+        const data = JSON.parse(raw);
+        setClients(data.clients || []);
+        setProjects(data.projects || []);
+      }
+    } catch (e) {} finally {
+      setLoaded(true);
+    }
+  }, []);
+  useEffect(() => {
+    if (!loaded) return;
+    setSaving(true);
+    const t = setTimeout(() => {
+      try {
+        window.localStorage.setItem("grafipro:data", JSON.stringify({
+          clients,
+          projects
+        }));
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setSaving(false);
+      }
+    }, 300);
+    return () => clearTimeout(t);
+  }, [clients, projects, loaded]);
+  const clientById = useCallback(id => clients.find(c => c.id === id), [clients]);
+  const saveClient = c => {
+    setClients(prev => prev.some(x => x.id === c.id) ? prev.map(x => x.id === c.id ? c : x) : [...prev, c]);
+    setClientForm(null);
+  };
+  const deleteClient = id => {
+    if (projects.some(p => p.clientId === id)) {
+      alert("Ce client a des projets liés. Supprimez d'abord ses projets.");
+      return;
+    }
+    setClients(prev => prev.filter(c => c.id !== id));
+  };
+  const saveProject = p => {
+    setProjects(prev => prev.some(x => x.id === p.id) ? prev.map(x => x.id === p.id ? p : x) : [...prev, p]);
+    setProjectForm(null);
+  };
+  const deleteProject = id => {
+    setProjects(prev => prev.filter(p => p.id !== id));
+    if (openProjectId === id) setOpenProjectId(null);
+  };
+  const updateProject = (id, patch) => setProjects(prev => prev.map(p => p.id === id ? {
+    ...p,
+    ...patch
+  } : p));
+  const exportData = () => {
+    const blob = new Blob([JSON.stringify({
+      clients,
+      projects,
+      exportedAt: new Date().toISOString()
+    }, null, 2)], {
+      type: "application/json"
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `grafipro-sauvegarde-${today()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  const importInputRef = React.useRef(null);
+  const importData = e => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result);
+        if (!confirm("Importer ce fichier va remplacer toutes les données actuelles. Continuer ?")) return;
+        setClients(data.clients || []);
+        setProjects(data.projects || []);
+      } catch (err) {
+        alert("Fichier invalide.");
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
+  };
+  if (!loaded) return /*#__PURE__*/React.createElement("div", {
+    className: "gp",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement(Loader2, {
+    size: 20,
+    style: {
+      color: "var(--cyan)"
+    }
+  }));
+  if (!settings.onboarded) return /*#__PURE__*/React.createElement(OnboardingScreen, {
+    initial: settings,
+    onSave: s => {
+      setSettings(s);
+      saveSettings(s);
+    }
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    className: "gp"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "var(--ink)",
+      color: "var(--paper)",
+      padding: "14px 20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "gp-reg",
+    style: {
+      width: 18,
+      height: 18,
+      marginRight: 4
+    }
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "gp-display",
+    style: {
+      fontSize: 16,
+      lineHeight: 1
+    }
+  }, "GRAFIPRO"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 10,
+      opacity: .6,
+      marginTop: 2
+    }
+  }, (settings.shopName ? settings.shopName.toUpperCase() : "OUTIL INTERNE") + " · " + (tradeInfo(settings.trade) ? tradeInfo(settings.trade).label : "Babel Digital")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 11,
+      opacity: .7,
+      display: "flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, saving ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Loader2, {
+    size: 12
+  }), " enregistrement…") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Save, {
+    size: 12
+  }), " à jour")), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    style: {
+      padding: "5px 10px",
+      fontSize: 11
+    },
+    onClick: exportData,
+    title: "Télécharger une sauvegarde JSON"
+  }, "Exporter"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    style: {
+      padding: "5px 10px",
+      fontSize: 11
+    },
+    onClick: () => importInputRef.current.click(),
+    title: "Restaurer depuis une sauvegarde JSON"
+  }, "Importer"), /*#__PURE__*/React.createElement("input", {
+    ref: importInputRef,
+    type: "file",
+    accept: "application/json",
+    style: {
+      display: "none"
+    },
+    onChange: importData
+  }), /*#__PURE__*/React.createElement(IconBtn, {
+    onClick: () => setSettingsOpen(true)
+  }, /*#__PURE__*/React.createElement(Settings, {
+    size: 14
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      padding: "10px 16px",
+      borderBottom: "1px solid var(--line)",
+      background: "var(--paper-2)",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-tab " + (tab === "dashboard" ? "active" : ""),
+    onClick: () => setTab("dashboard")
+  }, /*#__PURE__*/React.createElement(LayoutGrid, {
+    size: 14
+  }), " Tableau de bord"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-tab " + (tab === "clients" ? "active" : ""),
+    onClick: () => setTab("clients")
+  }, /*#__PURE__*/React.createElement(Users, {
+    size: 14
+  }), " Clients"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-tab " + (tab === "projects" ? "active" : ""),
+    onClick: () => setTab("projects")
+  }, /*#__PURE__*/React.createElement(FolderKanban, {
+    size: 14
+  }), " Projets")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: 20
+    }
+  }, tab === "dashboard" && /*#__PURE__*/React.createElement(Dashboard, {
+    projects: projects,
+    clients: clients,
+    onOpenProject: id => {
+      setTab("projects");
+      setOpenProjectId(id);
+    }
+  }), tab === "clients" && /*#__PURE__*/React.createElement(ClientsView, {
+    clients: clients,
+    projects: projects,
+    search: search,
+    setSearch: setSearch,
+    onNew: () => setClientForm({
+      id: uid(),
+      name: "",
+      phone: "",
+      email: "",
+      address: "",
+      notes: ""
+    }),
+    onEdit: c => setClientForm(c),
+    onDelete: deleteClient
+  }), tab === "projects" && /*#__PURE__*/React.createElement(ProjectsView, {
+    projects: projects,
+    clients: clients,
+    clientById: clientById,
+    search: search,
+    setSearch: setSearch,
+    openProjectId: openProjectId,
+    setOpenProjectId: setOpenProjectId,
+    settings: settings,
+    onNew: () => {
+      if (clients.length === 0) {
+        alert("Ajoutez d'abord un client.");
+        setTab("clients");
+        return;
+      }
+      setProjectForm({
+        id: uid(),
+        clientId: clients[0].id,
+        title: "",
+        category: categoriesForTrade(settings.trade)[0],
+        status: "Devis",
+        deadline: "",
+        lineItems: [{
+          id: uid(),
+          desc: "",
+          qty: 1,
+          unitPrice: 0
+        }],
+        discount: 0,
+        payments: [],
+        batStatus: "Aucun",
+        batNote: "",
+        createdAt: today()
+      });
+    },
+    onEdit: p => setProjectForm(p),
+    onDelete: deleteProject,
+    onUpdate: updateProject
+  })), clientForm && /*#__PURE__*/React.createElement(ClientModal, {
+    client: clientForm,
+    onSave: saveClient,
+    onClose: () => setClientForm(null)
+  }), projectForm && /*#__PURE__*/React.createElement(ProjectModal, {
+    project: projectForm,
+    clients: clients,
+    settings: settings,
+    onSave: saveProject,
+    onClose: () => setProjectForm(null)
+  }), settingsOpen && /*#__PURE__*/React.createElement(SettingsModal, {
+    settings: settings,
+    onSave: s => {
+      setSettings(s);
+      saveSettings(s);
+      setSettingsOpen(false);
+    },
+    onClose: () => setSettingsOpen(false)
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "14px 20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 8,
+      borderTop: "1px solid var(--line)",
+      background: "var(--paper-2)"
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: BABEL_DIGITAL.logo,
+    alt: "Babel Digital",
+    style: {
+      width: 22,
+      height: 22,
+      borderRadius: 3,
+      objectFit: "cover"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 10,
+      color: "var(--ink-soft)"
+    }
+  }, "Développé par ", /*#__PURE__*/React.createElement("b", null, BABEL_DIGITAL.name), " — ", BABEL_DIGITAL.tagline, " · ", BABEL_DIGITAL.phones.join(" / "))));
+}
+function SettingsModal({
+  settings,
+  onSave,
+  onClose
+}) {
+  const [s, setS] = useState(settings);
+  const set = k => e => setS({
+    ...s,
+    [k]: e.target.value
+  });
+  return /*#__PURE__*/React.createElement(Modal, {
+    onClose: onClose,
+    title: "Paramètres de l'atelier (pour devis/factures)"
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Nom de l'atelier *"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: s.shopName,
+    onChange: set("shopName"),
+    autoFocus: true
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Téléphone"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "tel",
+    value: s.phone,
+    onChange: set("phone")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Adresse"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: s.address,
+    onChange: set("address")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Métier *"
+  }, /*#__PURE__*/React.createElement("select", {
+    className: "gp-input",
+    value: s.trade,
+    onChange: set("trade")
+  }, TRADE_OPTIONS.map(o => /*#__PURE__*/React.createElement("option", {
+    key: o.id,
+    value: o.id
+  }, o.label)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "RCCM (optionnel)"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: s.rccm,
+    onChange: set("rccm")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "NINEA (optionnel)"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: s.ninea,
+    onChange: set("ninea")
+  }))), /*#__PURE__*/React.createElement(Field, {
+    label: "Mention pied de page (devis/facture)"
+  }, /*#__PURE__*/React.createElement("textarea", {
+    className: "gp-input",
+    rows: 2,
+    placeholder: "Ex. Paiement à la commande. Devis valable 15 jours.",
+    value: s.footerNote,
+    onChange: set("footerNote")
+  })), /*#__PURE__*/React.createElement(ModalFooter, {
+    onClose: onClose,
+    onSave: () => s.shopName.trim() && onSave(s),
+    disabled: !s.shopName.trim()
+  }));
+}
+function StatusBadge({
+  status
+}) {
+  const c = STATUS_COLOR[status] || STATUS_COLOR["Devis"];
+  return /*#__PURE__*/React.createElement("span", {
+    className: "gp-badge",
+    style: {
+      background: c.bg,
+      color: c.fg
+    }
+  }, status);
+}
+function Dashboard({
+  projects,
+  clients,
+  onOpenProject
+}) {
+  const [bilanOpen, setBilanOpen] = useState(false);
+  const stats = useMemo(() => {
+    const monthKey = new Date().toISOString().slice(0, 7);
+    let caMois = 0,
+      resteTotal = 0,
+      enCours = 0,
+      retards = 0;
+    projects.forEach(p => {
+      const t = projectTotals(p);
+      resteTotal += t.due;
+      if (!["Terminé", "Livré"].includes(p.status)) enCours++;
+      if (isLate(p)) retards++;
+      (p.payments || []).forEach(pay => {
+        if ((pay.date || "").slice(0, 7) === monthKey) caMois += Number(pay.amount) || 0;
+      });
+    });
+    return {
+      caMois,
+      resteTotal,
+      enCours,
+      retards
+    };
+  }, [projects]);
+  const todayStats = useMemo(() => {
+    const d = today();
+    let encaisse = 0,
+      depense = 0;
+    const mouvements = [];
+    projects.forEach(p => {
+      (p.payments || []).forEach(pay => {
+        if (pay.date === d) {
+          encaisse += Number(pay.amount) || 0;
+          mouvements.push({
+            type: "encaissement",
+            projectTitle: p.title,
+            label: pay.method,
+            amount: Number(pay.amount) || 0
+          });
+        }
+      });
+      (p.expenses || []).forEach(ex => {
+        if (ex.date === d) {
+          depense += Number(ex.amount) || 0;
+          mouvements.push({
+            type: "depense",
+            projectTitle: p.title,
+            label: ex.desc,
+            amount: Number(ex.amount) || 0
+          });
+        }
+      });
+    });
+    return {
+      encaisse,
+      depense,
+      net: encaisse - depense,
+      mouvements
+    };
+  }, [projects]);
+  const upcoming = useMemo(() => projects.filter(p => p.deadline && !["Terminé", "Livré"].includes(p.status)).sort((a, b) => new Date(a.deadline) - new Date(b.deadline)).slice(0, 6), [projects]);
+  const cards = [{
+    label: "Encaissé ce mois",
+    value: fcfa(stats.caMois),
+    color: "var(--cyan)",
+    bg: "var(--cyan-soft)",
+    icon: Wallet
+  }, {
+    label: "Reste à encaisser",
+    value: fcfa(stats.resteTotal),
+    color: "var(--magenta)",
+    bg: "var(--magenta-soft)",
+    icon: FileText
+  }, {
+    label: "Projets en cours",
+    value: stats.enCours,
+    color: "var(--amber)",
+    bg: "var(--amber-soft)",
+    icon: Clock
+  }, {
+    label: "En retard",
+    value: stats.retards,
+    color: "var(--magenta)",
+    bg: "var(--magenta-soft)",
+    icon: AlertTriangle
+  }];
+  return /*#__PURE__*/React.createElement("div", null, todayStats.encaisse > 0 && todayStats.depense === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: "10px 14px",
+      marginBottom: 14,
+      background: "var(--amber-soft)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      fontSize: 12.5,
+      color: "var(--amber)"
+    }
+  }, /*#__PURE__*/React.createElement(AlertTriangle, {
+    size: 14
+  }), /*#__PURE__*/React.createElement("span", null, "Vous avez encaissé de l'argent aujourd'hui mais aucune dépense n'est enregistrée. Pensez à saisir vos dépenses du jour (tissus, encre, sous-traitance…) avant de fermer.")), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    style: {
+      fontSize: 11,
+      padding: "5px 10px",
+      flexShrink: 0
+    },
+    onClick: () => setBilanOpen(true)
+  }, "Voir le bilan du jour")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "flex-end",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-primary",
+    style: {
+      fontSize: 12
+    },
+    onClick: () => setBilanOpen(true)
+  }, /*#__PURE__*/React.createElement(Wallet, {
+    size: 13
+  }), " Bilan du jour")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))",
+      gap: 12,
+      marginBottom: 20
+    }
+  }, cards.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c.label,
+    className: "gp-card",
+    style: {
+      padding: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: c.bg,
+      color: c.color,
+      width: 28,
+      height: 28,
+      borderRadius: 2,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement(c.icon, {
+    size: 14
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label",
+    style: {
+      margin: 0
+    }
+  }, c.label)), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 20,
+      fontWeight: 700
+    }
+  }, c.value)))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      marginBottom: 12,
+      display: "flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement(Clock, {
+    size: 14,
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }), " Échéances à venir"), upcoming.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "var(--ink-soft)"
+    }
+  }, "Aucun projet avec deadline en cours."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6
+    }
+  }, upcoming.map(p => {
+    const client = clients.find(c => c.id === p.clientId);
+    const late = isLate(p);
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.id,
+      onClick: () => onOpenProject(p.id),
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "8px 10px",
+        background: late ? "var(--magenta-soft)" : "var(--paper)",
+        borderRadius: 2,
+        cursor: "pointer",
+        gap: 8,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 13
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 600
+      }
+    }, p.title || "Sans titre"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--ink-soft)"
+      }
+    }, " — ", client?.name || "?")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "gp-mono",
+      style: {
+        fontSize: 11,
+        color: late ? "var(--magenta)" : "var(--ink-soft)",
+        fontWeight: 700
+      }
+    }, p.deadline), /*#__PURE__*/React.createElement(StatusBadge, {
+      status: p.status
+    })));
+  }))), bilanOpen && /*#__PURE__*/React.createElement(Modal, {
+    onClose: () => setBilanOpen(false),
+    title: "Bilan du jour — " + today()
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 12,
+      background: "var(--green-soft)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-label"
+  }, "Encaissé aujourd'hui"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 17,
+      fontWeight: 700,
+      color: "var(--green)"
+    }
+  }, fcfa(todayStats.encaisse))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 12,
+      background: "var(--magenta-soft)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-label"
+  }, "Dépensé aujourd'hui"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 17,
+      fontWeight: 700,
+      color: "var(--magenta)"
+    }
+  }, "- ", fcfa(todayStats.depense)))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 12,
+      marginBottom: 14,
+      background: "var(--ink)",
+      color: "var(--paper)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-label",
+    style: {
+      color: "var(--paper)",
+      opacity: .7
+    }
+  }, "Reste net en poche aujourd'hui"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 22,
+      fontWeight: 700
+    }
+  }, fcfa(todayStats.net))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label",
+    style: {
+      marginBottom: 6
+    }
+  }, "Détail des mouvements du jour"), todayStats.mouvements.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "var(--ink-soft)"
+    }
+  }, "Aucun encaissement ni dépense enregistré aujourd'hui."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      maxHeight: 240,
+      overflowY: "auto"
+    }
+  }, todayStats.mouvements.map((m, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontSize: 12,
+      background: "var(--paper-2)",
+      padding: "6px 8px",
+      borderRadius: 2
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, m.projectTitle || "Sans titre"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, " · ", m.label)), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700,
+      color: m.type === "encaissement" ? "var(--green)" : "var(--magenta)"
+    }
+  }, m.type === "encaissement" ? "+ " : "- ", fcfa(m.amount)))))));
+}
+function ClientsView({
+  clients,
+  projects,
+  search,
+  setSearch,
+  onNew,
+  onEdit,
+  onDelete
+}) {
+  const filtered = clients.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Toolbar, {
+    search: search,
+    setSearch: setSearch,
+    placeholder: "Rechercher un client…",
+    onNew: onNew,
+    newLabel: "Nouveau client"
+  }), filtered.length === 0 && /*#__PURE__*/React.createElement(EmptyState, {
+    text: "Aucun client. Ajoutez le premier client pour démarrer."
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(220px,1fr))",
+      gap: 10
+    }
+  }, filtered.map(c => {
+    const cProjects = projects.filter(p => p.clientId === c.id);
+    const due = cProjects.reduce((s, p) => s + projectTotals(p).due, 0);
+    return /*#__PURE__*/React.createElement("div", {
+      key: c.id,
+      className: "gp-card",
+      style: {
+        padding: 14
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 14
+      }
+    }, c.name), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6
+      }
+    }, /*#__PURE__*/React.createElement(IconBtn, {
+      onClick: () => onEdit(c)
+    }, /*#__PURE__*/React.createElement(Pencil, {
+      size: 13
+    })), /*#__PURE__*/React.createElement(IconBtn, {
+      onClick: () => onDelete(c.id),
+      danger: true
+    }, /*#__PURE__*/React.createElement(Trash2, {
+      size: 13
+    })))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 8,
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        fontSize: 12,
+        color: "var(--ink-soft)"
+      }
+    }, c.phone && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement(Phone, {
+      size: 11
+    }), " ", c.phone), c.email && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement(Mail, {
+      size: 11
+    }), " ", c.email), c.address && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement(MapPin, {
+      size: 11
+    }), " ", c.address)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 10,
+        paddingTop: 10,
+        borderTop: "1px solid var(--line)",
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: 12
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "var(--ink-soft)"
+      }
+    }, cProjects.length, " projet(s)"), due > 0 && /*#__PURE__*/React.createElement("span", {
+      className: "gp-mono",
+      style: {
+        color: "var(--magenta)",
+        fontWeight: 700
+      }
+    }, fcfa(due), " dû")));
+  })));
+}
+function ClientModal({
+  client,
+  onSave,
+  onClose
+}) {
+  const [c, setC] = useState(client);
+  const set = k => e => setC({
+    ...c,
+    [k]: e.target.value
+  });
+  return /*#__PURE__*/React.createElement(Modal, {
+    onClose: onClose,
+    title: client.name ? "Modifier le client" : "Nouveau client"
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Nom *"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: c.name,
+    onChange: set("name"),
+    autoFocus: true
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Téléphone"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "tel",
+    inputMode: "tel",
+    value: c.phone,
+    onChange: set("phone")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Email"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "email",
+    inputMode: "email",
+    value: c.email,
+    onChange: set("email")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Adresse"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: c.address,
+    onChange: set("address")
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Notes"
+  }, /*#__PURE__*/React.createElement("textarea", {
+    className: "gp-input",
+    rows: 3,
+    value: c.notes,
+    onChange: set("notes")
+  })), /*#__PURE__*/React.createElement(ModalFooter, {
+    onClose: onClose,
+    onSave: () => c.name.trim() && onSave(c),
+    disabled: !c.name.trim()
+  }));
+}
+function ProjectsView({
+  projects,
+  clients,
+  clientById,
+  search,
+  setSearch,
+  openProjectId,
+  setOpenProjectId,
+  onNew,
+  onEdit,
+  onDelete,
+  onUpdate,
+  settings
+}) {
+  const filtered = projects.filter(p => {
+    const client = clientById(p.clientId);
+    return (p.title + " " + (client?.name || "")).toLowerCase().includes(search.toLowerCase());
+  });
+  const open = projects.find(p => p.id === openProjectId);
+  if (open) return /*#__PURE__*/React.createElement(ProjectDetail, {
+    project: open,
+    client: clientById(open.clientId),
+    settings: settings,
+    onBack: () => setOpenProjectId(null),
+    onEdit: () => onEdit(open),
+    onDelete: () => onDelete(open.id),
+    onUpdate: patch => onUpdate(open.id, patch)
+  });
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Toolbar, {
+    search: search,
+    setSearch: setSearch,
+    placeholder: "Rechercher un projet…",
+    onNew: onNew,
+    newLabel: "Nouveau projet"
+  }), filtered.length === 0 && /*#__PURE__*/React.createElement(EmptyState, {
+    text: "Aucun projet. Créez le premier devis/projet."
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      overflow: "hidden"
+    }
+  }, filtered.map((p, i) => {
+    const client = clientById(p.clientId);
+    const t = projectTotals(p);
+    const late = isLate(p);
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.id,
+      onClick: () => setOpenProjectId(p.id),
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px 14px",
+        borderTop: i === 0 ? "none" : "1px solid var(--line)",
+        cursor: "pointer",
+        background: late ? "var(--magenta-soft)" : "transparent",
+        gap: 10,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 13,
+        display: "flex",
+        alignItems: "center",
+        gap: 6
+      }
+    }, p.title || "Sans titre", " ", late && /*#__PURE__*/React.createElement(AlertTriangle, {
+      size: 12,
+      style: {
+        color: "var(--magenta)"
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "var(--ink-soft)"
+      }
+    }, client?.name || "?", " · ", p.category, p.deadline ? ` · échéance ${p.deadline}` : "")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 14,
+        flexShrink: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        textAlign: "right"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "gp-mono",
+      style: {
+        fontSize: 13,
+        fontWeight: 700
+      }
+    }, fcfa(t.total)), t.due > 0 ? /*#__PURE__*/React.createElement("div", {
+      className: "gp-mono",
+      style: {
+        fontSize: 11,
+        color: "var(--magenta)"
+      }
+    }, "reste ", fcfa(t.due)) : /*#__PURE__*/React.createElement("div", {
+      className: "gp-mono",
+      style: {
+        fontSize: 11,
+        color: "var(--green)"
+      }
+    }, "soldé")), /*#__PURE__*/React.createElement(StatusBadge, {
+      status: p.status
+    }), /*#__PURE__*/React.createElement(ChevronRight, {
+      size: 15,
+      style: {
+        color: "var(--ink-soft)"
+      }
+    })));
+  })));
+}
+function ProjectDetail({
+  project: p,
+  client,
+  settings,
+  onBack,
+  onEdit,
+  onDelete,
+  onUpdate
+}) {
+  const t = projectTotals(p);
+  const [payAmount, setPayAmount] = useState("");
+  const [payMethod, setPayMethod] = useState(PAY_METHODS[0]);
+  const [payRef, setPayRef] = useState("");
+  const [expDesc, setExpDesc] = useState("");
+  const [expQty, setExpQty] = useState("1");
+  const [expUnitCost, setExpUnitCost] = useState("");
+  const [genLoading, setGenLoading] = useState(false);
+  const downloadPDF = kind => {
+    if (!client) {
+      alert("Aucun client associé à ce projet.");
+      return;
+    }
+    setGenLoading(true);
+    setTimeout(() => {
+      try {
+        const doc = generatePDF(p, client, settings, kind);
+        doc.save(`${kind}-${(p.title || "projet").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-${today()}.pdf`);
+      } catch (e) {
+        alert("Erreur lors de la génération du PDF.");
+        console.error(e);
+      } finally {
+        setGenLoading(false);
+      }
+    }, 30);
+  };
+  const shareWhatsApp = kind => {
+    if (!client) {
+      alert("Aucun client associé à ce projet.");
+      return;
+    }
+    const shop = settings.shopName || "notre atelier";
+    const trade = tradeInfo(settings.trade);
+    const activite = trade ? trade.short : "atelier";
+    const firstName = (client.name || "").split(" ")[0] || client.name;
+    let msg;
+    if (kind === "devis") {
+      const delaiLine = p.deadline ? `• Délai proposé : ${p.deadline}\n` : "";
+      msg = `Bonjour ${firstName},\n\nMerci de votre confiance. Voici le devis pour « ${p.title} » établi par ${shop} (${activite}) :\n\n` + `• Montant total : ${fcfa(t.total)}\n` + delaiLine + `\nLe détail complet est dans le PDF joint. N'hésitez pas à me faire signe pour toute question ou pour valider la commande.\n\n` + `Bien cordialement,\n${shop}${settings.phone ? " — " + settings.phone : ""}`;
+    } else {
+      msg = `Bonjour ${firstName},\n\nVoici la facture pour « ${p.title} » (${shop}) :\n\n` + `• Total : ${fcfa(t.total)}\n` + `• Déjà payé : ${fcfa(t.paid)}\n` + (t.due > 0 ? `• Reste à payer : ${fcfa(t.due)}\n` : `• Facture soldée ✅\n`) + `\nLe PDF détaillé est joint. ${t.due > 0 ? "Merci de bien vouloir régulariser le solde à votre convenance." : "Merci pour votre confiance !"}\n\n` + `Bien cordialement,\n${shop}${settings.phone ? " — " + settings.phone : ""}`;
+    }
+    const phoneDigits = (client.phone || "").replace(/[^0-9]/g, "");
+    const waNumber = phoneDigits ? phoneDigits.startsWith("221") ? phoneDigits : "221" + phoneDigits.replace(/^0+/, "") : "";
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+    downloadPDF(kind);
+    setTimeout(() => window.open(url, "_blank"), 400);
+  };
+  const addPayment = () => {
+    const amt = Number(payAmount);
+    if (!amt || amt <= 0) return;
+    if (amt > t.due) {
+      if (!confirm(`Ce montant dépasse le reste dû (${fcfa(t.due)}). Continuer quand même ?`)) return;
+    }
+    onUpdate({
+      payments: [...(p.payments || []), {
+        id: uid(),
+        amount: amt,
+        method: payMethod,
+        reference: payRef,
+        date: today()
+      }]
+    });
+    setPayAmount("");
+    setPayRef("");
+  };
+  const removePayment = id => onUpdate({
+    payments: p.payments.filter(x => x.id !== id)
+  });
+  const addExpense = () => {
+    const qty = Number(expQty) || 1;
+    const unitCost = Number(expUnitCost);
+    if (!expDesc.trim() || !unitCost || unitCost <= 0) return;
+    onUpdate({
+      expenses: [...(p.expenses || []), {
+        id: uid(),
+        desc: expDesc.trim(),
+        qty,
+        unitCost,
+        amount: qty * unitCost,
+        date: today()
+      }]
+    });
+    setExpDesc("");
+    setExpQty("1");
+    setExpUnitCost("");
+  };
+  const removeExpense = id => onUpdate({
+    expenses: (p.expenses || []).filter(x => x.id !== id)
+  });
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginBottom: 14,
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    onClick: onBack
+  }, "← Retour"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    disabled: genLoading,
+    onClick: () => downloadPDF("devis")
+  }, genLoading ? /*#__PURE__*/React.createElement(Loader2, {
+    size: 13
+  }) : /*#__PURE__*/React.createElement(FileDown, {
+    size: 13
+  }), " Devis PDF"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    disabled: genLoading,
+    onClick: () => downloadPDF("facture")
+  }, genLoading ? /*#__PURE__*/React.createElement(Loader2, {
+    size: 13
+  }) : /*#__PURE__*/React.createElement(FileDown, {
+    size: 13
+  }), " Facture PDF"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    disabled: genLoading || !client?.phone,
+    onClick: () => shareWhatsApp(p.status === "Devis" ? "devis" : "facture"),
+    title: !client?.phone ? "Ajoutez un téléphone au client" : ""
+  }, /*#__PURE__*/React.createElement(MessageCircle, {
+    size: 13
+  }), " WhatsApp"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    onClick: onEdit
+  }, /*#__PURE__*/React.createElement(Pencil, {
+    size: 13
+  }), " Modifier"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-danger",
+    onClick: () => {
+      if (confirm("Supprimer ce projet ?")) onDelete();
+    }
+  }, /*#__PURE__*/React.createElement(Trash2, {
+    size: 13
+  }), " Supprimer"))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-grid-2",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "2fr 1fr",
+      gap: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 11,
+      color: "var(--ink-soft)"
+    }
+  }, "PROJET · ", client?.name || "?"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-display",
+    style: {
+      fontSize: 20,
+      marginTop: 2
+    }
+  }, p.title || "Sans titre")), /*#__PURE__*/React.createElement(StatusBadge, {
+    status: p.status
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 16,
+      marginTop: 12,
+      fontSize: 12,
+      color: "var(--ink-soft)",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, p.category), p.deadline && /*#__PURE__*/React.createElement("span", null, "Échéance : ", /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: isLate(p) ? "var(--magenta)" : "var(--ink)"
+    }
+  }, p.deadline)), /*#__PURE__*/React.createElement("span", null, "Créé le ", p.createdAt)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 14,
+      display: "flex",
+      gap: 6,
+      flexWrap: "wrap"
+    }
+  }, STATUSES.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s,
+    onClick: () => onUpdate({
+      status: s
+    }),
+    className: "gp-badge",
+    style: {
+      background: s === p.status ? "var(--ink)" : "var(--paper-2)",
+      color: s === p.status ? "var(--paper)" : "var(--ink-soft)",
+      cursor: "pointer",
+      border: "none"
+    }
+  }, s)))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16,
+      marginBottom: 14,
+      overflowX: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      marginBottom: 10
+    }
+  }, "Devis"), /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      fontSize: 12,
+      borderCollapse: "collapse"
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      color: "var(--ink-soft)",
+      textAlign: "left"
+    }
+  }, /*#__PURE__*/React.createElement("th", {
+    style: {
+      paddingBottom: 6
+    }
+  }, "Article"), /*#__PURE__*/React.createElement("th", {
+    style: {
+      paddingBottom: 6,
+      textAlign: "right"
+    }
+  }, "Qté"), /*#__PURE__*/React.createElement("th", {
+    style: {
+      paddingBottom: 6,
+      textAlign: "right"
+    }
+  }, "PU"), /*#__PURE__*/React.createElement("th", {
+    style: {
+      paddingBottom: 6,
+      textAlign: "right"
+    }
+  }, "Total"))), /*#__PURE__*/React.createElement("tbody", null, (p.lineItems || []).map(li => /*#__PURE__*/React.createElement("tr", {
+    key: li.id,
+    style: {
+      borderTop: "1px solid var(--line)"
+    }
+  }, /*#__PURE__*/React.createElement("td", {
+    style: {
+      padding: "6px 0"
+    }
+  }, li.desc || "—"), /*#__PURE__*/React.createElement("td", {
+    className: "gp-mono",
+    style: {
+      textAlign: "right"
+    }
+  }, li.qty), /*#__PURE__*/React.createElement("td", {
+    className: "gp-mono",
+    style: {
+      textAlign: "right"
+    }
+  }, fcfa(li.unitPrice)), /*#__PURE__*/React.createElement("td", {
+    className: "gp-mono",
+    style: {
+      textAlign: "right"
+    }
+  }, fcfa(li.qty * li.unitPrice)))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      paddingTop: 10,
+      borderTop: "1px solid var(--line)",
+      display: "flex",
+      flexDirection: "column",
+      gap: 4,
+      alignItems: "flex-end",
+      fontSize: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", null, "Sous-total : ", /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono"
+  }, fcfa(t.subtotal))), p.discount > 0 && /*#__PURE__*/React.createElement("div", null, "Remise : ", /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono"
+  }, "- ", fcfa(p.discount))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 14
+    }
+  }, "Total : ", /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono"
+  }, fcfa(t.total))))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      marginBottom: 10
+    }
+  }, "BAT (bon à tirer)"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label"
+  }, "Statut"), /*#__PURE__*/React.createElement("select", {
+    className: "gp-input",
+    style: {
+      marginBottom: 10
+    },
+    value: p.batStatus,
+    onChange: e => onUpdate({
+      batStatus: e.target.value
+    })
+  }, ["Aucun", "Envoyé au client", "Modification demandée", "Validé"].map(s => /*#__PURE__*/React.createElement("option", {
+    key: s
+  }, s))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label"
+  }, "Note / lien maquette"), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    placeholder: "Lien Drive/WhatsApp de la maquette, remarques du client…",
+    value: p.batNote || "",
+    onChange: e => onUpdate({
+      batNote: e.target.value
+    })
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      marginBottom: 10
+    }
+  }, "Paiements"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, (p.payments || []).length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "var(--ink-soft)"
+    }
+  }, "Aucun paiement enregistré."), (p.payments || []).map(pay => /*#__PURE__*/React.createElement("div", {
+    key: pay.id,
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontSize: 12,
+      background: "var(--paper)",
+      padding: "6px 8px",
+      borderRadius: 2
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700
+    }
+  }, fcfa(pay.amount)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, " · ", pay.method, " · ", pay.date)), /*#__PURE__*/React.createElement(IconBtn, {
+    onClick: () => removePayment(pay.id),
+    danger: true
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 12
+  }))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: "1px solid var(--line)",
+      paddingTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "0",
+    inputMode: "numeric",
+    placeholder: "Montant",
+    value: payAmount,
+    onChange: e => setPayAmount(e.target.value)
+  }), /*#__PURE__*/React.createElement("select", {
+    className: "gp-input",
+    style: {
+      width: 120
+    },
+    value: payMethod,
+    onChange: e => setPayMethod(e.target.value)
+  }, PAY_METHODS.map(m => /*#__PURE__*/React.createElement("option", {
+    key: m
+  }, m)))), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    placeholder: "Référence (optionnel)",
+    value: payRef,
+    onChange: e => setPayRef(e.target.value),
+    style: {
+      marginBottom: 6
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-primary",
+    style: {
+      width: "100%",
+      justifyContent: "center"
+    },
+    onClick: addPayment
+  }, /*#__PURE__*/React.createElement(Plus, {
+    size: 13
+  }), " Enregistrer"))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      marginBottom: 10
+    }
+  }, "Dépenses de production"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, (p.expenses || []).length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "var(--ink-soft)"
+    }
+  }, "Aucune dépense enregistrée."), (p.expenses || []).map(ex => /*#__PURE__*/React.createElement("div", {
+    key: ex.id,
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontSize: 12,
+      background: "var(--paper)",
+      padding: "6px 8px",
+      borderRadius: 2
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700,
+      color: "var(--magenta)"
+    }
+  }, "- ", fcfa(ex.amount)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, " · ", ex.desc, ex.qty > 1 ? ` (${ex.qty} × ${fcfa(ex.unitCost)})` : "", " · ", ex.date)), /*#__PURE__*/React.createElement(IconBtn, {
+    onClick: () => removeExpense(ex.id),
+    danger: true
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 12
+  }))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: "1px solid var(--line)",
+      paddingTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    placeholder: "Ex. Tissu T-shirt, encre DTF, sous-traitance…",
+    value: expDesc,
+    onChange: e => setExpDesc(e.target.value),
+    style: {
+      marginBottom: 6
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "1",
+    inputMode: "numeric",
+    placeholder: "Qté",
+    value: expQty,
+    onChange: e => setExpQty(e.target.value),
+    style: {
+      width: 70
+    }
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "0",
+    inputMode: "numeric",
+    placeholder: "Coût unitaire",
+    value: expUnitCost,
+    onChange: e => setExpUnitCost(e.target.value)
+  })), (Number(expQty) || 0) > 0 && Number(expUnitCost) > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "var(--ink-soft)",
+      marginBottom: 6,
+      textAlign: "right"
+    }
+  }, "= ", fcfa((Number(expQty) || 0) * (Number(expUnitCost) || 0))), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    style: {
+      width: "100%",
+      justifyContent: "center"
+    },
+    onClick: addExpense
+  }, /*#__PURE__*/React.createElement(Plus, {
+    size: 13
+  }), " Ajouter la dépense"))), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 12,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, "Total"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700
+    }
+  }, fcfa(t.total))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 12,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, "Payé"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      color: "var(--green)"
+    }
+  }, fcfa(t.paid))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 12,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "var(--ink-soft)"
+    }
+  }, "Dépenses"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      color: "var(--magenta)"
+    }
+  }, "- ", fcfa(t.expenses))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 13,
+      marginBottom: 8,
+      paddingBottom: 8,
+      borderBottom: "1px solid var(--line)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700
+    }
+  }, "Reste dû (client)"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700,
+      color: t.due > 0 ? "var(--magenta)" : "var(--green)"
+    }
+  }, fcfa(t.due))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 13,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700
+    }
+  }, "Reste net en poche"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700,
+      color: t.netCash >= 0 ? "var(--green)" : "var(--magenta)"
+    }
+  }, fcfa(t.netCash))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10.5,
+      color: "var(--ink-soft)",
+      marginBottom: 8
+    }
+  }, "= encaissé − dépenses. Ce que vous avez réellement en poche sur ce projet à ce jour."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 13,
+      paddingTop: 8,
+      borderTop: "1px solid var(--line)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700
+    }
+  }, "Marge totale prévue"), /*#__PURE__*/React.createElement("span", {
+    className: "gp-mono",
+    style: {
+      fontWeight: 700,
+      color: t.margin >= 0 ? "var(--green)" : "var(--magenta)"
+    }
+  }, fcfa(t.margin))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10.5,
+      color: "var(--ink-soft)"
+    }
+  }, "= total du devis − dépenses. Bénéfice attendu une fois le client entièrement payé.")))));
+}
+function ProjectModal({
+  project,
+  clients,
+  settings,
+  onSave,
+  onClose
+}) {
+  const [p, setP] = useState(project);
+  const cats = categoriesForTrade(settings?.trade);
+  const set = k => e => setP({
+    ...p,
+    [k]: e.target.value
+  });
+  const updateLine = (id, patch) => setP({
+    ...p,
+    lineItems: p.lineItems.map(li => li.id === id ? {
+      ...li,
+      ...patch
+    } : li)
+  });
+  const addLine = () => setP({
+    ...p,
+    lineItems: [...p.lineItems, {
+      id: uid(),
+      desc: "",
+      qty: 1,
+      unitPrice: 0
+    }]
+  });
+  const removeLine = id => setP({
+    ...p,
+    lineItems: p.lineItems.filter(li => li.id !== id)
+  });
+  const t = projectTotals(p);
+  const valid = p.title.trim() && p.clientId;
+  return /*#__PURE__*/React.createElement(Modal, {
+    onClose: onClose,
+    title: project.title ? "Modifier le projet" : "Nouveau projet",
+    wide: true
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Client *"
+  }, /*#__PURE__*/React.createElement("select", {
+    className: "gp-input",
+    value: p.clientId,
+    onChange: set("clientId")
+  }, clients.map(c => /*#__PURE__*/React.createElement("option", {
+    key: c.id,
+    value: c.id
+  }, c.name)))), /*#__PURE__*/React.createElement(Field, {
+    label: "Catégorie"
+  }, /*#__PURE__*/React.createElement("select", {
+    className: "gp-input",
+    value: p.category,
+    onChange: set("category")
+  }, cats.map(c => /*#__PURE__*/React.createElement("option", {
+    key: c
+  }, c))))), /*#__PURE__*/React.createElement(Field, {
+    label: "Titre du projet *"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    value: p.title,
+    onChange: set("title"),
+    placeholder: "Ex. 100 T-shirts événement",
+    autoFocus: true
+  })), /*#__PURE__*/React.createElement(Field, {
+    label: "Deadline"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "date",
+    value: p.deadline,
+    onChange: set("deadline")
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "gp-label",
+    style: {
+      marginTop: 10
+    }
+  }, "Lignes du devis"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      marginBottom: 8
+    }
+  }, p.lineItems.map(li => /*#__PURE__*/React.createElement("div", {
+    key: li.id,
+    style: {
+      display: "flex",
+      gap: 6,
+      alignItems: "center",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    placeholder: "Description",
+    value: li.desc,
+    onChange: e => updateLine(li.id, {
+      desc: e.target.value
+    }),
+    style: {
+      flex: "2 1 140px"
+    }
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "0",
+    step: "1",
+    inputMode: "numeric",
+    placeholder: "Qté",
+    value: li.qty,
+    onChange: e => updateLine(li.id, {
+      qty: Math.max(0, Number(e.target.value))
+    }),
+    style: {
+      width: 70
+    }
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "0",
+    step: "1",
+    inputMode: "numeric",
+    placeholder: "Prix unitaire",
+    value: li.unitPrice,
+    onChange: e => updateLine(li.id, {
+      unitPrice: Math.max(0, Number(e.target.value))
+    }),
+    style: {
+      width: 110
+    }
+  }), /*#__PURE__*/React.createElement(IconBtn, {
+    onClick: () => removeLine(li.id),
+    danger: true
+  }, /*#__PURE__*/React.createElement(Trash2, {
+    size: 13
+  }))))), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    onClick: addLine
+  }, /*#__PURE__*/React.createElement(Plus, {
+    size: 13
+  }), " Ajouter une ligne"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 12,
+      marginTop: 12,
+      alignItems: "end"
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Remise (FCFA)"
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    type: "number",
+    min: "0",
+    inputMode: "numeric",
+    value: p.discount,
+    onChange: e => setP({
+      ...p,
+      discount: Math.max(0, Number(e.target.value))
+    })
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: "8px 12px",
+      background: "var(--paper-2)",
+      border: "none"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "var(--ink-soft)"
+    }
+  }, "Total devis"), /*#__PURE__*/React.createElement("div", {
+    className: "gp-mono",
+    style: {
+      fontSize: 16,
+      fontWeight: 700
+    }
+  }, fcfa(t.total)))), /*#__PURE__*/React.createElement(ModalFooter, {
+    onClose: onClose,
+    onSave: () => valid && onSave(p),
+    disabled: !valid
+  }));
+}
+function Toolbar({
+  search,
+  setSearch,
+  placeholder,
+  onNew,
+  newLabel
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 14,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      flex: "1 1 200px"
+    }
+  }, /*#__PURE__*/React.createElement(Search, {
+    size: 14,
+    style: {
+      position: "absolute",
+      left: 10,
+      top: 10,
+      color: "var(--ink-soft)"
+    }
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "gp-input",
+    style: {
+      paddingLeft: 30
+    },
+    placeholder: placeholder,
+    value: search,
+    onChange: e => setSearch(e.target.value)
+  })), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-primary",
+    onClick: onNew
+  }, /*#__PURE__*/React.createElement(Plus, {
+    size: 14
+  }), " ", newLabel));
+}
+function EmptyState({
+  text
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      padding: 30,
+      textAlign: "center",
+      color: "var(--ink-soft)",
+      fontSize: 13,
+      marginBottom: 14
+    }
+  }, text);
+}
+function IconBtn({
+  children,
+  onClick,
+  danger
+}) {
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    style: {
+      width: 26,
+      height: 26,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: 2,
+      border: "1px solid var(--line)",
+      background: "var(--white)",
+      color: danger ? "var(--magenta)" : "var(--ink-soft)",
+      cursor: "pointer"
+    }
+  }, children);
+}
+function Field({
+  label,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "gp-label"
+  }, label), children);
+}
+function Modal({
+  title,
+  children,
+  onClose,
+  wide
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(27,29,35,0.5)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 50,
+      padding: 16
+    },
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-card",
+    style: {
+      width: wide ? 560 : 420,
+      maxWidth: "100%",
+      maxHeight: "85vh",
+      overflowY: "auto",
+      padding: 20,
+      fontFamily: "Inter, sans-serif"
+    },
+    onClick: e => e.stopPropagation()
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "gp-display",
+    style: {
+      fontSize: 15
+    }
+  }, title), /*#__PURE__*/React.createElement(IconBtn, {
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 14
+  }))), children));
+}
+function ModalFooter({
+  onClose,
+  onSave,
+  disabled
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "flex-end",
+      gap: 8,
+      marginTop: 16,
+      paddingTop: 14,
+      borderTop: "1px solid var(--line)"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-outline",
+    onClick: onClose
+  }, "Annuler"), /*#__PURE__*/React.createElement("button", {
+    className: "gp-btn gp-btn-primary",
+    onClick: onSave,
+    disabled: disabled,
+    style: {
+      opacity: disabled ? 0.5 : 1,
+      cursor: disabled ? "not-allowed" : "pointer"
+    }
+  }, /*#__PURE__*/React.createElement(CheckCircle2, {
+    size: 13
+  }), " Enregistrer"));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(GrafiProApp, null));
+</script>
+</body>
+</html>
